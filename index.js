@@ -1,28 +1,11 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const token = process.env.token // a garder en version heroku
+const token = process.env.token
 const prefix = ("?");
 
 bot.on('ready', function () {
     console.log("Je suis prêt à être utilisé.")
-    bot.user.setActivity('rien').catch(console.error)
-});
-
-bot.on('guildMemberAdd', member => {
-    member.createDM().then(channel => {
-        return channel.send('Bienvenue sur le serveur FREE NITRO' + member.displayName)
-        console.log(`${member.displayName} à rejoins le serveur.`)
-    }).catch(console.error)
-});
-
-const ban = require('./kick et ban/ban');
-require('./embed/RichEmbed');
-
-bot.on('message', function (message){
-    if (ban.match(message)){
-        return ban.action(message)
-    }
-});
+    bot.user.setActivity('Donner des NITROS').catch(console.error)
 
 
 bot.on('message', msg => {
